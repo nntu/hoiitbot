@@ -10,6 +10,7 @@ const LocalSession = require("telegraf-session-local");
 
 var Datastore = require("nedb");
 let bot = new Telegraf(process.env.BOT_TOKEN);
+
 if (process.env.PROXY_USE) {
   console.log("user proxy");
   console.log("proxy host: " + process.env.PROXY_HOST);
@@ -89,7 +90,8 @@ bot.command("addurl", ctx => {
         var doc = {
           url: parts[2].trim(),
           loai: "hotgirl",
-          nguon: "addbybot"
+          nguon: "addbybot",
+          nguoidonggop: ctx.from
         };
         console.log(doc);
         db.insert(doc, function(err, newDoc) {
@@ -109,6 +111,10 @@ bot.command("addurl", ctx => {
 
   /*
    */
+});
+
+bot.command("test", ctx => {
+  console.log(ctx.from);
 });
 
 bot.catch(error => {
