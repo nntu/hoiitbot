@@ -1709,7 +1709,7 @@ request@2.26.x:
     qs "~0.6.0"
     tunnel-agent "~0.3.0"
 
-request@^2.65.0, request@^2.88.0:
+request@^2.65.0, request@^2.69.0, request@^2.88.0:
   version "2.88.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.88.0.tgz#9c2fca4f7d35b592efe57c7f0a55e81052124fef"
   integrity sha512-NAqBSrijGLZdM0WZNsInLJpkJokL72XYjUpnB0iwsRgxh7dB6COrHnTBNwN0E+lHDAJzu7kLAkDeY08z2/A0hg==
@@ -1996,6 +1996,13 @@ table@^5.2.3:
     slice-ansi "^2.1.0"
     string-width "^3.0.0"
 
+telegraf-command-parts@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/telegraf-command-parts/-/telegraf-command-parts-1.0.3.tgz#d0e078d10ce3f68469b529e5ea3a76e42d5788b3"
+  integrity sha1-0OB40Qzj9oRptSnl6jp25C1XiLM=
+  dependencies:
+    telegraf "^3.1.0"
+
 telegraf-inline-menu@^3.5.2:
   version "3.5.2"
   resolved "https://registry.yarnpkg.com/telegraf-inline-menu/-/telegraf-inline-menu-3.5.2.tgz#4bae995b5891e9466ac0e2c06e9c0b4872ad2f16"
@@ -2010,7 +2017,7 @@ telegraf-session-local@^0.0.6:
     lodash-id "^0.14.0"
     lowdb "^1.0.0"
 
-telegraf@^3.29.0:
+telegraf@^3.1.0, telegraf@^3.29.0:
   version "3.29.0"
   resolved "https://registry.yarnpkg.com/telegraf/-/telegraf-3.29.0.tgz#0655d02b9a2d72d53ff20787947aa10ad54a747c"
   integrity sha512-zvlY2Wnls7D/sJDTD21tORR9S1Exe6NThUCvYhdhCoKx7+OOZlplSd4yhSZbRI4bViuFdyhxCE+IuWS/ZmAElg==
@@ -2116,6 +2123,13 @@ uri-js@^4.2.2:
   integrity sha512-KY9Frmirql91X2Qgjry0Wd4Y+YTdrdZheS8TFwvkbLWf/G5KNJDCh6pKL5OZctEW4+0Baa5idK2ZQuELRwPznQ==
   dependencies:
     punycode "^2.1.0"
+
+url-exists@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/url-exists/-/url-exists-1.0.3.tgz#05b2875baf04950e27ef51e9846f1eff04716893"
+  integrity sha1-BbKHW68ElQ4n71HphG8e/wRxaJM=
+  dependencies:
+    request "^2.69.0"
 
 url-regex@^3.0.0:
   version "3.2.0"
