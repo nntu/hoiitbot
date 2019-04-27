@@ -6,13 +6,13 @@ db = new Datastore({
 });
 
 // Using $exists
-db.find({ url: { $exists: false } }, function(err, docs) {
+db.find({ loai:   'album' }, function(err, docs) {
   // docs contains only Mars
   console.log(docs);
 });
 
 // Remove multiple documents
-db.remove({ url: { $exists: false } }, { multi: true }, function(
+db.remove({  loai:   'album'  }, { multi: true }, function(
   err,
   numRemoved
 ) {

@@ -10,7 +10,7 @@ require('fs').readFileSync('link.txt', 'utf-8').split(/\r?\n/).forEach(function(
   
   var doc ={
 'url':line,
-'loai':'pola',
+'loai':'album',
 nguon:'addbybot'    
 }
 
