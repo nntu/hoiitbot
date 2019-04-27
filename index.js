@@ -10,6 +10,7 @@ const LocalSession = require("telegraf-session-local");
 
 var Datastore = require("nedb");
 let bot = new Telegraf(process.env.BOT_TOKEN);
+
 if (process.env.PROXY_USE) {
   console.log("user proxy");
   console.log("proxy host: " + process.env.PROXY_HOST);
