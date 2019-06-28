@@ -19,7 +19,7 @@
     "request-promise": "^4.2.4",
     "screenshot-desktop": "^1.8.0",
     "socks-proxy-agent": "^4.0.2",
-    "telegraf": "^3.29.0",
+    "telegraf": "^3.30.1",
     "telegraf-command-parts": "^1.0.3",
     "telegraf-inline-menu": "^3.5.4",
     "telegraf-session-local": "^0.0.6",

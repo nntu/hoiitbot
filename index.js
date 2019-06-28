@@ -39,6 +39,7 @@ bot.use(async (ctx, next) => {
 });
 */
 bot.use(new LocalSession({ database: "db.json" }).middleware());
+
 bot.start(ctx => ctx.reply("Welcome"));
 bot.help(ctx => ctx.reply("Send me a sticker"));
 bot.on("sticker", ctx => ctx.reply("👍"));
@@ -65,6 +66,10 @@ bot.command("hotgirl", ctx => {
             docs.forEach(function(d) {
               ctx.session.counter = ctx.session.counter || 0;
               ctx.session.counter++;
+             
+              ctx.session.daxem =  ctx.session.daxem || [];
+              ctx.session.daxem += {id: d._id,url : d.url};
+              console.log( ctx.session.daxem);
               console.log("Found  url:", d.url);
               ctx.replyWithPhoto(d.url);
             });
@@ -116,6 +121,9 @@ bot.command("addurl", ctx => {
 bot.command("test", ctx => {
   console.log(ctx.from);
 });
+
+
+
 
 bot.catch(error => {
   console.log(
