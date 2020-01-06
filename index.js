@@ -16,13 +16,16 @@ if (process.env.PROXY_USE) {
   console.log("proxy host: " + process.env.PROXY_HOST);
   console.log("proxy port : " + process.env.PROXY_PORT);
   const HttpsProxyAgent = require("https-proxy-agent");
+
   const proxyConfig = {
     telegram: {
       agent: new HttpsProxyAgent({
         host: process.env.PROXY_HOST,
-        port: process.env.PROXY_PORT
-      })
-    }
+        port: process.env.PROXY_PORT,
+        auth: "cardct:abcd@1234",
+        ca: [fs.readFileSync("BIDVCA.crt")],
+      }),
+    },
   };
 
   // bot.agent = proxyConfig;
@@ -46,7 +49,7 @@ bot.on("sticker", ctx => ctx.reply("👍"));
 bot.hears("hi", ctx => ctx.reply("Hey there"));
 const db = new Datastore({
   filename: "linkanh.db",
-  autoload: true
+  autoload: true,
 });
 
 bot.command("hotgirl", ctx => {
@@ -127,7 +130,7 @@ bot.command("addurl", ctx => {
           url: parts[2].trim(),
           loai: "hotgirl",
           nguon: "addbybot",
-          nguoidonggop: ctx.from
+          nguoidonggop: ctx.from,
         };
         console.log(doc);
         db.insert(doc, function(err, newDoc) {
