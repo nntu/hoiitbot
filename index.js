@@ -22,7 +22,7 @@ if (process.env.PROXY_USE) {
       agent: new HttpsProxyAgent({
         host: process.env.PROXY_HOST,
         port: process.env.PROXY_PORT,
-        auth: "cardct:abcd@1234",
+        auth: process.env.user + ":" process.env.pass,
         ca: [fs.readFileSync("BIDVCA.crt")],
       }),
     },
