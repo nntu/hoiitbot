@@ -80,6 +80,37 @@ bot.command("hotgirl", ctx => {
   db.loadDatabase();
 });
 
+
+bot.command("sexygirl", ctx => {
+  db.count({$not: { loai:'album_tumblr' } }, function(err, count) {
+    if (!err && count > 0) {
+      // count is the number of docs
+      // skip a random number between 0 to count-1
+      console.log("so luong recode " + count);
+      var skipCount = Math.floor(Math.random() * count);
+      console.log("skipcount " + skipCount);
+      db.find({$not: { loai:'album_tumblr' } })
+        .skip(skipCount)
+        .limit(1)
+        .exec(function(err2, docs) {
+          if (!err2) {
+            // docs[0] is your random doc
+            docs.forEach(function(d) {
+              ctx.session.counter = ctx.session.counter || 0;
+              ctx.session.counter++;             
+              ctx.session.daxem =  ctx.session.daxem || [];
+              ctx.session.daxem += {id: d._id,url : d.url};
+              console.log( ctx.session.daxem);
+              console.log("Found  url:", d.url);
+              ctx.replyWithPhoto(d.url);
+            });
+          }
+        });
+    }
+  });
+  db.loadDatabase();
+});
+
 bot.command("addurl", ctx => {
   const regex = /^\/([^@\s]+)@?([\s\S]*)$/i;
   const parts = regex.exec(ctx.message.text);

@@ -6,22 +6,21 @@ db = new Datastore({
 });
 
 // Using $exists
-db.find({
-  url: /Choo-Ja-Hyun/
+db.find({ $not: { loai:'album_tumblr' } 
 }, function (err, docs) {
   // docs contains only Mars
   console.log(docs);
 });
 
-// Remove multiple documents
-db.remove({
-  url: /Choo-Ja-Hyun/
-}, {
-  multi: true
-}, function (
-  err,
-  numRemoved
-) {
-  // numRemoved = 3
-  // All planets from the solar system were removed
-});
+// // Remove multiple documents
+// db.remove({
+//   url: /Choo-Ja-Hyun/
+// }, {
+//   multi: true
+// }, function (
+//   err,
+//   numRemoved
+// ) {
+//   // numRemoved = 3
+//   // All planets from the solar system were removed
+// });
